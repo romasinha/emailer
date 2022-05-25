@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contact Form</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <form onsubmit="sendEmail(); reset(); return false;">
+                <h3>Conference Management System</h3>
+                <input type="text" id="name" placeholder="Your name" required>
+                <input type="email" id="email" placeholder="Your email" required>
+                <textarea  id="message" rows="4" placeholder="Your feedback" required></textarea>
+                <button type="submit">Send Feedback</button>
+            </form>
+        </div>
+        <script src="https://smtpjs.com/v3/smtp.js">
+        </script>
+
+        <script>
+            function sendEmail(){
+                Email.send({
+    Host : "smtp.gmail.com",
+    Username : "mini.anu2409@gmail.com",
+    Password : "password",
+    To : 'sinha.roma99@gmail.com',
+    From : document.getElementById("email").value,
+    Subject : "This is the subject",
+    Body : "And this is the body"
+}).then(
+  message => alert(message)
+);
+
+            }
+        </script>
+    </body>
+</html>
